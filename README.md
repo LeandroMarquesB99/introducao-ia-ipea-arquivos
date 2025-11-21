@@ -8,11 +8,14 @@ Este curso tem como objetivo familiarizar os participantes com as ferramentas de
 
 ## 📥 Como Baixar os Arquivos
 
-Todo o material de apoio (planilhas e documentos de exercício) está disponível em um único pacote `.zip`.
+Todo o material de apoio (planilhas e documentos de exercício) está disponível no pages ou em um único pacote `.zip`.
+
+**Para baixar os arquivos no github pages:**
+https://leandromarquesb99.github.io/introducao-ia-ipea-arquivos/
 
 **Para baixar todos os arquivos de uma vez:**
 
-1.  Acesse a **[Página de Lançamentos (Releases)](https://github.com/SEU_NOME_DE_USUARIO/NOME_DO_SEU_REPOSITORIO/releases/latest)**.
+1.  Acesse a **[Página de Lançamentos (Releases)](https://github.com/LeandroMarquesB99/introducao-ia-ipea-arquivos/releases/tag/v1.0)**.
 2.  Clique no arquivo `.zip` ou `.tar.gz` para fazer o download de tudo.
 
 ### 📚 Conteúdo do Pacote
