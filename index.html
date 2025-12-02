@@ -3,237 +3,1014 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material de Apoio AULA 01 - Curso IA IPEA</title>
+    <title>Curso IA no IPEA | Produtividade e Inovação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            /* CORES ORIGINAIS RESTAURADAS */
+            --ipea-blue: #004a75; /* Azul Institucional */
+            --ipea-cyan: #00b0d8; /* Ciano/Teal das ondas */
+            --light-bg: #f3f6f9;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
-            background-color: #f6f8fa;
-            color: #24292e;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, var(--ipea-blue) 0%, #003355 100%);
+            color: var(--white);
+            padding: 40px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Onda de fundo */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDMyMCI+PHBhdGggZmlsbD0iIzAwYjBkOCIgZmlsbC1vcGFjaXR5PSIwLjEiIGQ9Ik0wLDE5Mkw0OCwxOTcuM0M5NiwyMDMsMTkyLDIxMywyODgsMjI5LjNDMzg0LDI0NSw0ODAsMjY3LDU3NiwyNTAuN0M2NzIsMjM1LDc2OCwxODEsODY0LDE2MC43Qzk2MCwxNDEsMTA1NiwxNTUsMTE1MiwxNjUuM0MxMjQ4LDE3NiwxMzQ0LDE4MSwxMzkyLDE4NC41TDE0NDAsMTg3TDE0NDAsMEwxMzkyLDBDMTM0NCwwLDEyNDgsMCwxMTUyLDBDMTA1NiwwLDk2MCwwLDg2NCwwQzc2OCwwLDY3MiwwLDU3NiwwQzQ4MCwwLDM4NCwwLDI4OCwwQzE5MiwwLDk2LDAsNDgsMEwwLDBaIj48L3BhdGg+PC9zdmc+');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px;
         }
-        header {
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+
         h1 {
-            color: #0366d6;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
-        .container {
-            background-color: #ffffff;
-            border: 1px solid #d1d5da;
-            border-radius: 6px;
-            padding: 24px;
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            padding: 12px 0;
-            border-bottom: 1px solid #e1e4e8;
-        }
-        li:last-child {
-            border-bottom: none;
-        }
-        a {
+
+        /* Link Versão Anterior */
+        .header-link-anterior {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            z-index: 5;
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            color: #0366d6;
-            font-weight: 600;
-            font-size: 1.1em;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
         }
-        a:hover {
+
+        .header-link-anterior:hover {
+            color: #ffffff;
             text-decoration: underline;
         }
-        /* Ícone de download (Emoji) */
-        a::before {
-            content: '📥 ';
-            margin-right: 8px;
+
+        /* --- CARDS DE NAVEGAÇÃO --- */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: -50px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--ipea-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px solid var(--ipea-cyan);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .nav-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--ipea-cyan);
+        }
+
+        .nav-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--ipea-blue);
+            font-size: 2rem;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--ipea-cyan);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- INSTRUTORES --- */
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .instructor-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e1e4e8;
+        }
+
+        .instructor-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--light-bg);
+        }
+
+        .instructor-card h3 {
+            color: var(--ipea-blue);
+            margin-bottom: 5px;
+        }
+
+        .instructor-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .instructor-email {
+            font-size: 0.85rem;
+            color: var(--ipea-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .instructor-email:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CRONOGRAMA --- */
+        .timeline {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .class-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .class-item:last-child {
+            border-bottom: none;
+        }
+
+        .class-date {
+            background: var(--ipea-blue);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            margin-right: 25px;
+            margin-top: 5px;
+        }
+
+        .class-date span {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .class-date strong {
+            font-size: 1.4rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .class-info {
+            flex-grow: 1;
+        }
+
+        .class-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Botões do Cronograma */
+        .class-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .class-links a {
+            color: var(--ipea-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background-color: #f8fcfd;
+            border: 1px solid #e1f5fe;
+            transition: all 0.2s;
+        }
+        
+        .class-links a:hover {
+            background-color: var(--ipea-blue);
+            color: var(--white);
+            border-color: var(--ipea-blue);
+        }
+
+        /* Botão Desabilitado */
+        .class-links a.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: #f3f6f9;
+            color: #999;
+            border-color: #eee;
+        }
+        .class-links a.disabled:hover {
+            background-color: #f3f6f9;
+            color: #999;
+        }
+
+        /* --- DOWNLOADS & TOOLTIPS --- */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 1px solid #e1e4e8;
+            transition: all 0.2s;
+            position: relative; /* Necessário para o tooltip */
+        }
+
+        .file-link:hover {
+            border-color: var(--ipea-cyan);
+            background: #f0fbff;
+            transform: translateX(3px);
+            z-index: 100;
+        }
+
+        /* TOOLTIP CSS */
+        .file-link[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #222;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            white-space: normal;
+            width: max-content;
+            max-width: 300px;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        .file-link[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #222 transparent transparent transparent;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .file-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .fa-file-word { color: #2b579a; }
+        .fa-file-powerpoint { color: #d24726; }
+        .fa-file-excel { color: #217346; }
+        .fa-file-pdf { color: #f40f02; }
+        .fa-envelope { color: #0078d4; }
+        .fa-clipboard-check { color: #008000; }
+        .fa-lightbulb { color: #e6b800; }
+
+        /* --- EXTRAS & PLAYLIST (Fundo Azul) --- */
+        .extras-box {
+            background: linear-gradient(to right, #004a75, #006a9c); /* Fundo Azul Original */
+            color: white;
+            border-radius: 12px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .extras-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .extras-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .extras-list li {
+            margin-bottom: 10px;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* PLAYLIST CLEAN */
+        .playlist-container {
+            background-color: rgba(255, 255, 255, 0.1); /* Vidro Branco Transparente */
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .playlist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .playlist-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .btn-play-all {
+            background-color: var(--white);
+            color: var(--ipea-blue);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-play-all:hover {
+            background-color: var(--ipea-cyan);
+            color: var(--white);
+        }
+
+        .playlist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .playlist-item:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Ativo com fundo branco suave */
+        .playlist-item.active {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-left: 4px solid var(--ipea-cyan);
+            font-weight: 600;
+        }
+
+        .song-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Equalizador Animado */
+        .equalizer {
+            display: none;
+            align-items: flex-end;
+            height: 15px;
+            width: 15px;
+            gap: 2px;
+        }
+
+        .playlist-item.active .equalizer {
+            display: flex;
+        }
+
+        .bar {
+            width: 3px;
+            background-color: var(--ipea-cyan);
+            animation: bounce 1s infinite ease-in-out;
+        }
+
+        .bar:nth-child(1) { animation-delay: 0.0s; height: 60%; }
+        .bar:nth-child(2) { animation-delay: 0.2s; height: 100%; }
+        .bar:nth-child(3) { animation-delay: 0.4s; height: 50%; }
+
+        @keyframes bounce {
+            0%, 100% { height: 40%; }
+            50% { height: 100%; }
+        }
+
+        .song-actions a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .song-actions a:hover {
+            background: var(--ipea-cyan);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #e1e4e8;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .nav-grid { margin-top: -30px; }
+            .class-item { flex-direction: column; align-items: flex-start; }
+            .class-date { margin-bottom: 10px; display: flex; gap: 10px; align-items: center; margin-right: 0;}
+            .class-links { width: 100%; justify-content: flex-start; }
+            .class-links a { width: 100%; justify-content: center; }
+            .file-link[data-tooltip]:hover::after, .file-link[data-tooltip]:hover::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🤖 Curso de Introdução à IA no IPEA</h1>
-        <p>Material de apoio, gravações das aulas, slides, links úteis e arquivos de exercícios.</p>
+        <div class="header-content">
+            <h1>Inteligência Artificial no IPEA</h1>
+            <p class="subtitle">Curso Introdutório de Capacitação para Servidores | Produtividade, Gestão e Futuro</p>
+        </div>
+        
+        <a href="index_antigo.html" class="header-link-anterior">
+            <i class="fa-solid fa-clock-rotate-left"></i> Versão Anterior
+        </a>
     </header>
 
-    <div class="container">
-        <h2>Arquivos para Download</h2>
-        <p>Clique em um arquivo abaixo para iniciar o download.</p>
-        
-        <ul>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Word.docx" download>
-                    Revisão IA no Word.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no PowerPoint.docx" download>
-                    Revisão IA no PowerPoint.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Excel.docx" download>
-                    Revisão IA no Excel.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Outlook.docx" download>
-                    Revisão IA no Outlook.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Teams.docx" download>
-                    Revisão IA no Teams.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Material_Complemenar_Vieses.docx" download>
-                    Introducao_IA_IPEA_Material_Complementar_Vieses.docx
-                </a>
-            </li>
-            <li>
-                <a href="Templates Reutilizáveis de Prompt.pdf" download>
-                    Templates Reutilizáveis de Prompt.pdf
-                </a>
-            </li>
-            <li>
-                <a href="Dados_Economicos_IPEA_Exercicio.xlsx" download>
-                    Dados Econômicos IPEA (Excel)
-                </a>
-            </li>
-            <li>
-                <a href="Email_Ipea-Comunica.msg" download>
-                    Email Ipea-Comunica (Outlook)
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Agente CoPilot.docx" download>
-                    Revisão IA Agente de IA no Copilot.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Demostracao_uso_combinado.docx" download>
-                    Revisão IA Demostracao uso combinado Copilot e IpeaGPT.docx
-                </a>
-            </li>
-             <li>
-                    <a href="Cap_12_Impacto_gastos_publicos_na_renda.pdf" download>
-                        Impacto dos gastos públicos na renda, produtividade e emprego (Cap 12)
-                    </a>
-             </li>
-             <li>
-                    <a href="Isolamento de voz em chamadas e reuniões do Microsoft Teams.pdf" download>
-                        Isolamento de voz em chamadas e reuniões do Microsoft Teams
-                    </a>
-             </li>
-             <li>
-                    <a href="td_2621_A RELAÇÃO ENTRE O CRESCIMENTO.pdf" download>
-                        TD 2621 - A Relação Entre O Crescimento Econômico E As Desigualdades Regionais No Brasil
-                    </a>
-             </li>
-             <li>
-                    <a href="NT_Dirur_57_Mortalidade_e_morbidade_das_motocicletas.pdf" download>
-                        Nota Técnica Dirur 57 - Mortalidade e morbidade das motocicletas e os riscos da implantação do mototáxi no Brasil
-                    </a>
-             </li>
-             <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Comunicacao Estratégica.docx" download>
-                    Revisão IA Exercicios Comunicacao Estratégica.docx
-                </a>
-             </li>
-             <li>
-                <a href="Anatomia do Prompt.docx" download>
-                    Anatomia do Prompt
-                </a>
-             </li>
-        </ul>
-
-        <h2>Links Úteis</h2>
-     
-        <ul>
-            <li>
-                <a href="https://myapps.microsoft.com/" target=blank >
-                    Painel de aplicativos Microsoft (Word/Excel/PowerPoint...)
-                </a>
-            </li>
-            <li>
-                <a href="https://www.gov.br/governodigital/pt-br/infraestrutura-nacional-de-dados/inteligencia-artificial-1/publicacoes/guia-pratico-de-prompt-e-pesquisa-com-ia-para-servidores-publicos/" target=blank >
-                    Guia prático de prompt e pesquisa com IA para servidores públicos 
-                </a>
-            </li>
-            <li>
-                <a href="https://ipeagpt.ipea.gov.br/" target=blank >
-                    IPEAGpt - Ferramenta de IA segura do IPEA
-                </a>
-            </li>
-            <li>
-                <a href="https://artificialanalysis.ai/" target=blank >
-                    Análise Independente e comparativa entre modelos de Inteligência Artificial.
-                </a>
-            </li>
-            <li>
-                <a href="https://www.menti.com/albxwdxgm7gt?source=qr-page" target=blank >
-                    Mentimeter - Ideias para Projetos Internos (Brainstorming)
-                </a>
-            </li>
-            <li>
-                <a href="https://forms.office.com/r/a2rLyBn7RAe" target=blank >
-                    Pesquisa de satisfação / Novas ideias
-                </a>
-            </li>
-        
-        </ul>
-
-          <h2>Slides Aulas (1, 2 e 3)</h2>
-     
-        <ul>
-            <li>
-                <a href="Roteiro Aula 1 IA no IPEA 18.11.25 v3.pdf" target=blank >
-                    Aula 1 - 18 de novembro de 2025- IA para Produtividade no Trabalho
-                </a>
-            </li>
-            <li>
-                <a href="Roteiro Aula 2 IA no IPEA 25.11.25 v2.pdf" target=blank >
-                    Aula 2 - 25 de novembro de 2025 - IA para Comunicação, Gestão e Agente de IA (Copilot)
-                </a>
-            </li>
-            <li>
-                <a href="" target=blank >
-                    (Em breve) Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro 
-                </a>
-            </li>
-        
-        </ul>
-        
-          <h2>Gravações</h2>
-     
-        <ul>
-            <li>
-                <!-- <a href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21eRm1aAL1_U2XkVZiWmiKH7O5xQKB0OtDkca0VFN0I1dHK0N-aTnfQLiGjUaafloc&driveItemId=01OPE6CROB37MAARVDO5GINRAY2A4QU3EA&sitePath=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEcHf2ABGo3dMhsQY0DkKbIAB94OgVojhY0qzeq53adb_EA&fileUrl=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEcHf2ABGo3dMhsQY0DkKbIAB94OgVojhY0qzeq53adb_EA&iCalUid=040000008200E00074C5B7101A82E00807E90B12A3E477CA9855DC01000000000000000010000000F134373FBB78354C904D0D43F600B6D3&masterICalUid=040000008200e00074c5b7101a82e00800000000a3e477ca9855dc01000000000000000010000000f134373fbb78354c904d0d43f600b6d3&threadId=19%3Ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2&organizerId=9a477e91-4a8c-4dff-874d-bfc14ec38f77&tenantId=daf3ba66-bd45-449d-8e55-bb5a6fd2a90d&callId=81e22481-be1f-48d7-81d7-93a22fb3a90a&threadType=Meeting&meetingType=Recurring&subType=RecapSharingLink_RecapChiclet" target=blank > -->
-                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EcHf2ABGo3dMhsQY0DkKbIABDJMcBACE6DU9uraGci019A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uv2F5b" target=blank >
-                    Aula 1 - 18 de novembro de 2025- IA para Produtividade no Trabalho
-                </a>
-            </li>
-            <li>
-                <!-- <a href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21eRm1aAL1_U2XkVZiWmiKH7O5xQKB0OtDkca0VFN0I1dHK0N-aTnfQLiGjUaafloc&driveItemId=01OPE6CRKMRIBDW34BP5BJJC6FJXMB52TR&sitePath=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEUyKAjtvgX9ClIvFTdge6nEBOsTQvjCsTEO7XC9biJkUdg&fileUrl=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2Fpersonal%2Fwebinar_ipea_gov_br%2FDocuments%2FGrava%25C3%25A7%25C3%25B5es%2FCurso%2520Introdu%25C3%25A7%25C3%25A3o%2520ao%2520uso%2520de%2520Intelig%25C3%25AAncia%2520Artificial%2520no%2520IPEA-20251125_195459UTC-Meeting%2520Recording.mp4%3Fweb%3D1&iCalUid=040000008200E00074C5B7101A82E00807E90B19A3E477CA9855DC01000000000000000010000000F134373FBB78354C904D0D43F600B6D3&masterICalUid=040000008200e00074c5b7101a82e00800000000a3e477ca9855dc01000000000000000010000000f134373fbb78354c904d0d43f600b6d3&threadId=19%3Ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2&organizerId=9a477e91-4a8c-4dff-874d-bfc14ec38f77&tenantId=daf3ba66-bd45-449d-8e55-bb5a6fd2a90d&callId=23613b6c-96ed-4c9c-a352-4d2a3815a156&threadType=Meeting&meetingType=Recurring&subType=RecapSharingLink_RecapCore" target=blank > -->
-                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EUyKAjtvgX9ClIvFTdge6nEBURD6uSgS038xC8TFXXmNQg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MJE5am" target=blank >
-                    Aula 2 - 25 de novembro de 2025 - IA para Comunicação, Gestão e Agente de IA (Copilot)
-                </a>
-            </li>
-            <li>
-                <a href="" target=blank >
-                    (Em breve) Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro 
-                </a>
-            </li>
-        
-        </ul>
+    <div class="nav-grid">
+        <a href="#aulas" class="nav-card">
+            <i class="fa-solid fa-person-chalkboard"></i>
+            <h3>Aulas e Gravações</h3>
+        </a>
+        <a href="#materiais" class="nav-card">
+            <i class="fa-solid fa-folder-open"></i>
+            <h3>Arquivos e Exercícios</h3>
+        </a>
+        <a href="#links" class="nav-card">
+            <i class="fa-solid fa-link"></i>
+            <h3>Links Úteis</h3>
+        </a>
+        <a href="#extras" class="nav-card">
+            <i class="fa-solid fa-music"></i>
+            <h3>Sala de Espera</h3>
+        </a>
     </div>
+
+    <section class="section" id="instrutores">
+        <div class="section-title">
+            <h2>Instrutores</h2>
+        </div>
+        <div class="instructors-grid">
+            <div class="instructor-card">
+                <img src="Foto Leandro IPEA 1x1.jpeg" alt="Leandro Marques" class="instructor-img">
+                <h3>Leandro Marques</h3>
+                <p>Técnico de Planejamento e Pesquisa</p>
+                <p style="font-size: 0.8rem; color: #999;">Coordenação-Geral de Tecnologia da Informação (CGDTI)</p>
+                <a href="mailto:leandro.silva@ipea.gov.br" class="instructor-email"><i class="fa-solid fa-envelope"></i> leandro.silva@ipea.gov.br</a>
+            </div>
+            <div class="instructor-card">
+                <img src="frederico_social_claro.png" alt="Frederico Tomaz" class="instructor-img">
+                <h3>Frederico Tomaz</h3>
+                <p>Analista de Sistemas</p>
+                <p style="font-size: 0.8rem; color: #999;">Coordenação-Geral de Tecnologia da Informação (CGDTI)</p>
+                <a href="mailto:frederico.franzosi@ipea.gov.br" class="instructor-email"><i class="fa-solid fa-envelope"></i> frederico.franzosi@ipea.gov.br</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="aulas">
+        <div class="section-title">
+            <h2>Cronograma e Gravações</h2>
+        </div>
+        <div class="timeline">
+            <div class="class-item">
+                <div class="class-date">
+                    <span>NOV</span>
+                    <strong>18</strong>
+                </div>
+                <div class="class-info">
+                    <h4>Aula 1 - IA para Produtividade no Trabalho</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Conceitos básicos, Prompt Engineering e IpeaGPT.</p>
+                    <div class="class-links">
+                        <a href="Roteiro Aula 1 IA no IPEA 18.11.25 v3.pptx" download><i class="fa-solid fa-file-powerpoint"></i> Baixar Slide</a>
+                        
+                        <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2/0?context=%7b%22Tid%22%3a%22daf3ba66-bd45-449d-8e55-bb5a6fd2a90d%22%2c%22Oid%22%3a%229a477e91-4a8c-4dff-874d-bfc14ec38f77%22%7d" target="_blank"><i class="fa-brands fa-microsoft"></i> Chat Reunião Teams</a>
+                        
+                        <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EcHf2ABGo3dMhsQY0DkKbIABDJMcBACE6DU9uraGci019A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uv2F5b" target="_blank"><i class="fa-solid fa-video"></i> Assistir Gravação</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="class-item">
+                <div class="class-date">
+                    <span>NOV</span>
+                    <strong>25</strong>
+                </div>
+                <div class="class-info">
+                    <h4>Aula 2 - IA para Comunicação, Gestão e Copilot</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">IA no Microsoft 365 (Word, Excel, PPT) e Agentes.</p>
+                    <div class="class-links">
+                        <a href="Roteiro Aula 2 IA no IPEA 25.11.25 v2.pptx" download><i class="fa-solid fa-file-powerpoint"></i> Baixar Slide</a>
+                        
+                        <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2/0?context=%7b%22Tid%22%3a%22daf3ba66-bd45-449d-8e55-bb5a6fd2a90d%22%2c%22Oid%22%3a%229a477e91-4a8c-4dff-874d-bfc14ec38f77%22%7d" target="_blank"><i class="fa-brands fa-microsoft"></i> Chat Reunião Teams</a>
+                        
+                        <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EUyKAjtvgX9ClIvFTdge6nEBURD6uSgS038xC8TFXXmNQg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MJE5am" target="_blank"><i class="fa-solid fa-video"></i> Assistir Gravação</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="class-item" style="background-color: #f0fbff; border-radius: 8px;">
+                <div class="class-date" style="background-color: var(--ipea-cyan);">
+                    <span>DEZ</span>
+                    <strong>02</strong>
+                </div>
+                <div class="class-info">
+                    <h4>Aula 3 - IA no IPEA: Aplicações e Futuro</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Segurança, ética, ferramentas avançadas e encerramento.</p>
+                    <span style="font-size: 0.9rem; color: var(--ipea-blue); font-weight: bold;"><i class="fa-regular fa-clock"></i> Das 14h30 às 16h30</span>
+                    
+                    <div class="class-links" style="margin-top: 10px;">
+                        <a href="#" class="disabled"><i class="fa-solid fa-file-powerpoint"></i> Slide (Em breve)</a>
+                        <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2/0?context=%7b%22Tid%22%3a%22daf3ba66-bd45-449d-8e55-bb5a6fd2a90d%22%2c%22Oid%22%3a%229a477e91-4a8c-4dff-874d-bfc14ec38f77%22%7d" target="_blank"><i class="fa-brands fa-microsoft"></i> Chat Reunião Teams</a>
+                        <a href="#" class="disabled"><i class="fa-solid fa-video"></i> Gravação (Em breve)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="materiais">
+        <div class="section-title">
+            <h2>Arquivos para Prática</h2>
+        </div>
+        
+        <h3 style="margin-bottom: 15px; color: #666; font-size: 1.1rem;">Exercícios Office 365</h3>
+        <div class="downloads-grid" style="margin-bottom: 30px;">
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Word.docx" class="file-link" download data-tooltip="Exercício prático de revisão e melhoria de textos usando IA no Word">
+                <i class="fa-solid fa-file-word file-icon"></i> Word: Revisão
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no PowerPoint.docx" class="file-link" download data-tooltip="Exercício de criação e design de slides com Copilot">
+                <i class="fa-solid fa-file-powerpoint file-icon"></i> PPT: Criação
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Excel.docx" class="file-link" download data-tooltip="Exercício de análise de dados e fórmulas no Excel">
+                <i class="fa-solid fa-file-excel file-icon"></i> Excel: Análise
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Outlook.docx" class="file-link" download data-tooltip="Exercício de gestão de e-mails e respostas automáticas">
+                <i class="fa-solid fa-envelope file-icon"></i> Outlook: E-mails
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Teams.docx" class="file-link" download data-tooltip="Exercício sobre resumos de reuniões e chat inteligente">
+                <i class="fa-solid fa-file-word file-icon"></i> Teams: Resumos
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao Agente CoPilot.docx" class="file-link" download data-tooltip="Exercício avançado sobre criação de Agentes no Copilot">
+                <i class="fa-solid fa-robot file-icon" style="color:#666"></i> Agente Copilot
+            </a>
+            <a href="Email_Ipea-Comunica.msg" class="file-link" download data-tooltip="Arquivo de modelo de e-mail do Outlook para prática">
+                <i class="fa-solid fa-envelope file-icon" style="color:#0078d4"></i> Email Ipea-Comunica (Outlook)
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao Demostracao_uso_combinado.docx" class="file-link" download data-tooltip="Roteiro de demonstração de uso combinado das ferramentas">
+                <i class="fa-solid fa-file-word file-icon"></i> Demonstração Uso Combinado
+            </a>
+            <a href="Introducao_IA_IPEA_Exercicios_Revisao Comunicacao Estratégica.docx" class="file-link" download data-tooltip="Exercícios focados em comunicação estratégica com IA">
+                <i class="fa-solid fa-file-word file-icon"></i> Comunicação Estratégica
+            </a>
+            <a href="Anatomia do Prompt.docx" class="file-link" download data-tooltip="Guia sobre como estruturar prompts eficientes">
+                <i class="fa-solid fa-file-word file-icon"></i> Anatomia do Prompt
+            </a>
+        </div>
+
+        <h3 style="margin-bottom: 15px; color: #666; font-size: 1.1rem;">Dados e Complementares</h3>
+        <div class="downloads-grid">
+            <a href="Dados_Economicos_IPEA_Exercicio.xlsx" class="file-link" download data-tooltip="Base de dados oficial do IPEA para exercícios de análise">
+                <i class="fa-solid fa-table file-icon" style="color: #217346"></i> Base de Dados (IPEA)
+            </a>
+            <a href="Templates Reutilizáveis de Prompt.pdf" class="file-link" download data-tooltip="Coleção de prompts prontos para reutilizar no dia a dia">
+                <i class="fa-solid fa-file-pdf file-icon"></i> Templates de Prompt
+            </a>
+            <a href="Introducao_IA_IPEA_Material_Complementar_Vieses.docx" class="file-link" download data-tooltip="Material de leitura sobre vieses algorítmicos em IA">
+                <i class="fa-solid fa-file-word file-icon"></i> Leitura: Viés em IA
+            </a>
+            <a href="Isolamento de voz em chamadas e reuniões do Microsoft Teams.pdf" class="file-link" download data-tooltip="Tutorial sobre como ativar o isolamento de voz no Teams">
+                <i class="fa-solid fa-file-pdf file-icon"></i> Guia: Isolamento de Voz
+            </a>
+            <a href="Cap_12_Impacto_gastos_publicos_na_renda.pdf" class="file-link" download data-tooltip="Impacto dos gastos públicos na renda, produtividade e emprego (Cap 12)">
+                <i class="fa-solid fa-file-pdf file-icon"></i> Impacto gastos públicos (Cap 12)
+            </a>
+            <a href="Contribuição_BIREME_Desenvolvimento_Saude_Paises_America_Latina_Caribe_Veronica Abdala.pdf" class="file-link" download data-tooltip="A Contribuição da BIREME para o Desenvolvimento da Saúde nos Países da América Latina e do Caribe">
+                <i class="fa-solid fa-file-pdf file-icon"></i> Contribuição BIREME (Saúde)
+            </a>
+            <a href="NT_Dirur_57_Mortalidade_e_morbidade_das_motocicletas.pdf" class="file-link" download data-tooltip="Nota Técnica Dirur 57 - Mortalidade e morbidade das motocicletas e os riscos da implantação do mototáxi no Brasil">
+                <i class="fa-solid fa-file-pdf file-icon"></i> Nota Técnica 57 (Motocicletas)
+            </a>
+            <a href="td_2621_A RELAÇÃO ENTRE O CRESCIMENTO.pdf" class="file-link" download data-tooltip="TD 2621 - A Relação Entre O Crescimento Econômico E As Desigualdades Regionais No Brasil">
+                <i class="fa-solid fa-file-pdf file-icon"></i> TD 2621 - Crescimento e Desigualdades
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="links">
+        <div class="section-title">
+            <h2>Links de Acesso Rápido</h2>
+        </div>
+        <div class="downloads-grid">
+            <a href="https://ipeagpt.ipea.gov.br/" target="_blank" class="file-link" style="border-left: 4px solid var(--ipea-blue);">
+                <i class="fa-solid fa-brain file-icon" style="color: var(--ipea-blue);"></i>
+                <strong>Acessar IpeaGPT</strong>
+            </a>
+            <a href="https://myapps.microsoft.com/" target="_blank" class="file-link">
+                <i class="fa-brands fa-microsoft file-icon"></i> Painel Microsoft 365
+            </a>
+            <a href="https://www.gov.br/governodigital/pt-br/infraestrutura-nacional-de-dados/inteligencia-artificial-1/publicacoes/guia-pratico-de-prompt-e-pesquisa-com-ia-para-servidores-publicos/" target="_blank" class="file-link">
+                <i class="fa-solid fa-book file-icon"></i> Guia Gov.br de Prompts
+            </a>
+            <a href="https://artificialanalysis.ai/" target="_blank" class="file-link">
+                <i class="fa-solid fa-chart-simple file-icon"></i> Comparativo de Modelos
+            </a>
+            <a href="https://bit.ly/cursoiaipea" target="_blank" class="file-link">
+                <i class="fa-solid fa-share-nodes file-icon"></i> Atalho do Curso (Bit.ly)
+            </a>
+            <a href="https://www.menti.com/albxwdxgm7gt?source=qr-page" target="_blank" class="file-link">
+                <i class="fa-solid fa-lightbulb file-icon" style="color: #e6b800;"></i> Mentimeter (Ideias)
+            </a>
+            <a href="https://forms.office.com/r/a2rLyBn7RAe" target="_blank" class="file-link">
+                <i class="fa-solid fa-clipboard-check file-icon" style="color: #008000;"></i> Pesquisa de Satisfação
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="extras">
+        <div class="extras-box">
+            <div class="extras-header">
+                <h3><i class="fa-solid fa-mug-hot"></i> Ambiente e Quebra-Gelo</h3>
+                <p>Recursos utilizados durante a recepção e intervalos do curso.</p>
+            </div>
+            
+            <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <ul class="extras-list">
+                        <li><i class="fa-solid fa-hourglass-half"></i> <a href="contagem_musical_v1.html" style="color: #b3e5fc; text-decoration: underline;"><strong>Contagem Regressiva:</strong></a> Programa customizado em JavaScript.</li>
+                        <li><i class="fa-solid fa-pen-nib"></i> <strong>Exercício Criativo:</strong> Reinterpretação da "Canção do Exílio" por IAs Generativas.</li>
+                        <li><i class="fa-solid fa-robot"></i> <strong>Projeto BSB:</strong> Álbum "Guerreiros da Nação".</li>
+                    </ul>
+                </div>
+
+                <div class="playlist-container">
+                    <div class="playlist-header">
+                        <div class="playlist-title"><i class="fa-solid fa-music"></i> Playlist Projeto BSB</div>
+                        <button class="btn-play-all" onclick="playAll()">
+                            <i class="fa-solid fa-play"></i> Tocar Tudo
+                        </button>
+                    </div>
+                    
+                    <audio id="audioPlayer" controls style="display:none;"></audio>
+
+                    <div class="playlist-item" onclick="playSong(0)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>1. Minha Terra é Só Love</span>
+                        </div>
+                        <div class="song-actions" data-src="Minha terra é só love 1.mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(1)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>2. Por Trás de Um Clique</span>
+                        </div>
+                        <div class="song-actions" data-src="Por trás de um clique.mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(2)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>3. Samba da Comunicação (Bossa Nova)</span>
+                        </div>
+                        <div class="song-actions" data-src="Samba da Comunicação (Bossa v1) (Vocals Completo IA) PRINCIPAL.mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(3)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>4. Samba da Comunicação (Versão Alternativa)</span>
+                        </div>
+                        <div class="song-actions" data-src="Samba da Comunicação (1x).mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(4)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>5. Raízes e Rotas</span>
+                        </div>
+                        <div class="song-actions" data-src="Raízes e Rotas (1x).mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(5)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>6. Raiz do Amanhã (Remix)</span>
+                        </div>
+                        <div class="song-actions" data-src="Raiz do Amanhã (Selam Lij) 6 (Remix).mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(6)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>7. Raiz do Amanhã (Original)</span>
+                        </div>
+                        <div class="song-actions" data-src="Raiz do Amanhã (Selam Lij) 6.mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(7)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>8. Peça por Peça (Logística)</span>
+                        </div>
+                        <div class="song-actions" data-src="Peça por peça (Logistica) (1x).mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                    <div class="playlist-item" onclick="playSong(8)">
+                        <div class="song-info">
+                            <div class="equalizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                            <i class="fa-regular fa-circle-play icon-play"></i>
+                            <span>9. Peça a Peça Big (Gestão)</span>
+                        </div>
+                        <div class="song-actions" data-src="Peça a Peça Big (Gestao) (1x).mp3">
+                            <a href="#" download onclick="event.stopPropagation()">Baixar</a>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="font-size: 1.5rem; color: var(--ipea-blue); font-weight: bold; margin-bottom: 10px;">ipea</div>
+        <p>Instituto de Pesquisa Econômica Aplicada</p>
+        <p>Coordenação-Geral de Tecnologia da Informação (CGDTI)</p>
+        <p style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid #eee; padding-top: 20px;">
+            &copy; 2025 - Curso de Introdução à IA <br> 
+            <span style="color: #999;">Desenvolvido por Leandro Marques</span>
+        </p>
+    </footer>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const items = document.querySelectorAll('.playlist-item');
+        let currentTrack = 0;
+        let isPlaying = false;
+
+        // Função para tocar uma música específica
+        function playSong(index) {
+            // Remove active de todos
+            items.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.icon-play').className = 'fa-regular fa-circle-play icon-play';
+            });
+
+            currentTrack = index;
+            // Pega o link do atributo data-src da div song-actions
+            const link = items[index].querySelector('.song-actions').getAttribute('data-src');
+            
+            // Adiciona active no atual
+            items[index].classList.add('active');
+            items[index].querySelector('.icon-play').className = 'fa-solid fa-circle-pause icon-play';
+
+            if(link && link !== "#") {
+                audioPlayer.src = link;
+                audioPlayer.play();
+                isPlaying = true;
+            } else {
+                console.log("Link de música não configurado. Adicione os arquivos MP3 na pasta.");
+            }
+        }
+
+        // Função Tocar Tudo
+        function playAll() {
+            playSong(0);
+        }
+
+        // Evento: Quando acabar uma música, toca a próxima automaticamente
+        audioPlayer.addEventListener('ended', () => {
+            if (currentTrack < items.length - 1) {
+                playSong(currentTrack + 1);
+            } else {
+                // Acabou a playlist
+                items[currentTrack].classList.remove('active');
+                items[currentTrack].querySelector('.icon-play').className = 'fa-regular fa-circle-play icon-play';
+                isPlaying = false;
+            }
+        });
+
+        // Tratamento de erro (caso não ache o arquivo de música)
+        audioPlayer.addEventListener('error', (e) => {
+            console.log("Arquivo de áudio não encontrado. Pulando para a próxima...");
+            // Pula para o próximo se der erro
+            if (currentTrack < items.length - 1) {
+                playSong(currentTrack + 1);
+            }
+        });
+    </script>
 
 </body>
 </html>
