@@ -72,7 +72,7 @@
             opacity: 0.9;
         }
 
-        /* Link Versão Anterior */
+        /* Link Versão Anterior (Estilo Desktop) */
         .header-link-anterior {
             position: absolute;
             bottom: 15px;
@@ -553,7 +553,7 @@
             font-size: 0.9rem;
         }
 
-        /* Responsividade */
+        /* RESPONSIVIDADE - MOBILE */
         @media (max-width: 768px) {
             h1 { font-size: 1.8rem; }
             .nav-grid { margin-top: -30px; }
@@ -562,6 +562,21 @@
             .class-links { width: 100%; justify-content: flex-start; }
             .class-links a { width: 100%; justify-content: center; }
             .file-link[data-tooltip]:hover::after, .file-link[data-tooltip]:hover::before { display: none; }
+
+            /* CORREÇÃO DO LINK VERSÃO ANTERIOR NO MOBILE */
+            .header-link-anterior {
+                position: relative; /* Sai do canto absoluto */
+                bottom: auto;
+                right: auto;
+                display: inline-block;
+                margin-top: 20px; /* Espaço do subtítulo */
+                background: rgba(0,0,0,0.2); /* Fundinho para leitura */
+                padding: 5px 15px;
+                border-radius: 4px;
+            }
+            header {
+                padding-bottom: 60px; /* Ajuste de espaçamento */
+            }
         }
     </style>
 </head>
@@ -660,8 +675,8 @@
                 </div>
             </div>
 
-            <div class="class-item" style="background-color: #f0fbff; border-radius: 8px;">
-                <div class="class-date" style="background-color: var(--ipea-cyan);">
+            <div class="class-item">
+                <div class="class-date">
                     <span>DEZ</span>
                     <strong>02</strong>
                 </div>
@@ -953,26 +968,18 @@
         </p>
     </footer>
 
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdsAZTVYUL6joxi333wXWmtzgOlFVNobkvt-Yn3v1mLF4_9yg/formResponse" method="post" target="hidden_iframe" style="display:none;">
+        <input type="text" name="entry.2047449398" id="entry_acao">
+        <input type="text" name="entry.2131815864" id="entry_musica">
+    </form>
+
     <script>
-        // --- CONFIGURAÇÃO DO GOOGLE FORMS (HACKER DE PLANILHA) ---
-        // URL de envio configurada
-        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsAZTVYUL6joxi333wXWmtzgOlFVNobkvt-Yn3v1mLF4_9yg/formResponse";
-        
-        // IDs dos campos extraídos
-        const ENTRY_ACAO = "entry.2047449398";   
-        const ENTRY_MUSICA = "entry.2131815864"; 
-
-        // Função mágica que envia os dados sem sair da página
+        // Função que preenche e envia o form invisível
         function registrarNoGoogleForms(acao, musica) {
-            const formData = new FormData();
-            formData.append(ENTRY_ACAO, acao);
-            formData.append(ENTRY_MUSICA, musica);
-
-            fetch(FORM_URL, {
-                method: "POST",
-                mode: "no-cors", // Permite enviar sem erro de CORS (resposta opaca)
-                body: formData
-            }).catch(e => console.error("Erro ao enviar log:", e));
+            document.getElementById('entry_acao').value = acao;
+            document.getElementById('entry_musica').value = musica;
+            document.getElementById('google-form').submit();
         }
 
         const audioPlayer = document.getElementById('audioPlayer');

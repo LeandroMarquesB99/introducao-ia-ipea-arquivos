@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Material de Apoio AULA 01 - Curso IA IPEA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             background-color: #f6f8fa;
             color: #24292e;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 40px 20px;
         }
         header {
             border-bottom: 1px solid #e1e4e8;
@@ -21,7 +24,19 @@
         }
         h1 {
             color: #0366d6;
+            margin-bottom: 10px;
         }
+        h2 {
+            margin-top: 40px;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 10px;
+            color: #24292e;
+        }
+        /* Ajuste para o primeiro h2 não ter margem excessiva */
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
         .container {
             background-color: #ffffff;
             border: 1px solid #d1d5da;
@@ -43,15 +58,82 @@
             text-decoration: none;
             color: #0366d6;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.05em;
         }
         a:hover {
             text-decoration: underline;
         }
-        /* Ícone de download (Emoji) */
-        a::before {
+        /* Ícone de download (Emoji) para links de arquivos */
+        .download-link::before {
             content: '📥 ';
             margin-right: 8px;
+        }
+        
+        /* Botão Nova Versão (Estilo Discreto/Sutil) */
+        .btn-nova-versao {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: #586069 !important; /* Cinza escuro */
+            font-size: 0.9em;
+            text-decoration: none !important;
+            border: 1px solid #d1d5da;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background-color: #fff;
+            transition: all 0.2s ease;
+        }
+        .btn-nova-versao:hover {
+            border-color: #0366d6;
+            color: #0366d6 !important;
+            background-color: #f1f8ff;
+        }
+
+        /* Estilo Simples dos Instrutores */
+        .instructors-box {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .instructor {
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background: #fafbfc;
+        }
+        .instructor img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .instructor h3 { margin: 10px 0 5px; font-size: 1.1em; color: #0366d6; }
+        .instructor p { margin: 0; font-size: 0.9em; color: #586069; }
+        .instructor a { font-size: 0.85em; color: #586069; display: block; margin-top: 5px; font-weight: normal;}
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e4e8;
+            color: #586069;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            color: #004a75;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
         }
     </style>
 </head>
@@ -60,180 +142,99 @@
     <header>
         <h1>🤖 Curso de Introdução à IA no IPEA</h1>
         <p>Material de apoio, gravações das aulas, slides, links úteis e arquivos de exercícios.</p>
+        <a href="index.html" class="btn-nova-versao">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Visualizar na nova interface
+        </a>
     </header>
 
     <div class="container">
+        
         <h2>Arquivos para Download</h2>
         <p>Clique em um arquivo abaixo para iniciar o download.</p>
         
         <ul>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Word.docx" download>
-                    Revisão IA no Word.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no PowerPoint.docx" download>
-                    Revisão IA no PowerPoint.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Excel.docx" download>
-                    Revisão IA no Excel.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Outlook.docx" download>
-                    Revisão IA no Outlook.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Teams.docx" download>
-                    Revisão IA no Teams.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Material_Complemenar_Vieses.docx" download>
-                    Introducao_IA_IPEA_Material_Complementar_Vieses.docx
-                </a>
-            </li>
-            <li>
-                <a href="Templates Reutilizáveis de Prompt.pdf" download>
-                    Templates Reutilizáveis de Prompt.pdf
-                </a>
-            </li>
-            <li>
-                <a href="Dados_Economicos_IPEA_Exercicio.xlsx" download>
-                    Dados Econômicos IPEA (Excel)
-                </a>
-            </li>
-            <li>
-                <a href="Email_Ipea-Comunica.msg" download>
-                    Email Ipea-Comunica (Outlook)
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Agente CoPilot.docx" download>
-                    Revisão IA Agente de IA no Copilot.docx
-                </a>
-            </li>
-            <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Demostracao_uso_combinado.docx" download>
-                    Revisão IA Demostracao uso combinado Copilot e IpeaGPT.docx
-                </a>
-            </li>
-             <li>
-                    <a href="Cap_12_Impacto_gastos_publicos_na_renda.pdf" download>
-                        Impacto dos gastos públicos na renda, produtividade e emprego (Cap 12)
-                    </a>
-             </li>
-             <li>
-                    <a href="Isolamento de voz em chamadas e reuniões do Microsoft Teams.pdf" download>
-                        Isolamento de voz em chamadas e reuniões do Microsoft Teams
-                    </a>
-             </li>
-             <li>
-                    <a href="td_2621_A RELAÇÃO ENTRE O CRESCIMENTO.pdf" download>
-                        TD 2621 - A Relação Entre O Crescimento Econômico E As Desigualdades Regionais No Brasil
-                    </a>
-             </li>
-             <li>
-                    <a href="NT_Dirur_57_Mortalidade_e_morbidade_das_motocicletas.pdf" download>
-                        Nota Técnica Dirur 57 - Mortalidade e morbidade das motocicletas e os riscos da implantação do mototáxi no Brasil
-                    </a>
-             </li>
-             <li>
-                <a href="Introducao_IA_IPEA_Exercicios_Revisao Comunicacao Estratégica.docx" download>
-                    Revisão IA Exercicios Comunicacao Estratégica.docx
-                </a>
-             </li>
-             <li>
-                <a href="Anatomia do Prompt.docx" download>
-                    Anatomia do Prompt
-                </a>
-             </li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Word.docx" class="download-link" download>Revisão IA no Word.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao IA no PowerPoint.docx" class="download-link" download>Revisão IA no PowerPoint.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Excel.docx" class="download-link" download>Revisão IA no Excel.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Outlook.docx" class="download-link" download>Revisão IA no Outlook.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao IA no Teams.docx" class="download-link" download>Revisão IA no Teams.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Material_Complementar_Vieses.docx" class="download-link" download>Introducao_IA_IPEA_Material_Complementar_Vieses.docx</a></li>
+            <li><a href="Templates Reutilizáveis de Prompt.pdf" class="download-link" download>Templates Reutilizáveis de Prompt.pdf</a></li>
+            <li><a href="Dados_Economicos_IPEA_Exercicio.xlsx" class="download-link" download>Dados Econômicos IPEA (Excel)</a></li>
+            <li><a href="Email_Ipea-Comunica.msg" class="download-link" download>Email Ipea-Comunica (Outlook)</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao Agente CoPilot.docx" class="download-link" download>Revisão IA Agente de IA no Copilot.docx</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao Demostracao_uso_combinado.docx" class="download-link" download>Revisão IA Demostracao uso combinado Copilot e IpeaGPT.docx</a></li>
+            <li><a href="Cap_12_Impacto_gastos_publicos_na_renda.pdf" class="download-link" download>Impacto dos gastos públicos na renda, produtividade e emprego (Cap 12)</a></li>
+            <li><a href="Isolamento de voz em chamadas e reuniões do Microsoft Teams.pdf" class="download-link" download>Isolamento de voz em chamadas e reuniões do Microsoft Teams</a></li>
+            <li><a href="td_2621_A RELAÇÃO ENTRE O CRESCIMENTO.pdf" class="download-link" download>TD 2621 - A Relação Entre O Crescimento Econômico E As Desigualdades Regionais No Brasil</a></li>
+            <li><a href="NT_Dirur_57_Mortalidade_e_morbidade_das_motocicletas.pdf" class="download-link" download>Nota Técnica Dirur 57 - Mortalidade e morbidade das motocicletas</a></li>
+            <li><a href="Introducao_IA_IPEA_Exercicios_Revisao Comunicacao Estratégica.docx" class="download-link" download>Revisão IA Exercicios Comunicacao Estratégica.docx</a></li>
+            <li><a href="Anatomia do Prompt.docx" class="download-link" download>Anatomia do Prompt</a></li>
         </ul>
 
         <h2>Links Úteis</h2>
-     
         <ul>
-            <li>
-                <a href="https://myapps.microsoft.com/" target=blank >
-                    Painel de aplicativos Microsoft (Word/Excel/PowerPoint...)
-                </a>
-            </li>
-            <li>
-                <a href="https://www.gov.br/governodigital/pt-br/infraestrutura-nacional-de-dados/inteligencia-artificial-1/publicacoes/guia-pratico-de-prompt-e-pesquisa-com-ia-para-servidores-publicos/" target=blank >
-                    Guia prático de prompt e pesquisa com IA para servidores públicos 
-                </a>
-            </li>
-            <li>
-                <a href="https://ipeagpt.ipea.gov.br/" target=blank >
-                    IPEAGpt - Ferramenta de IA segura do IPEA
-                </a>
-            </li>
-            <li>
-                <a href="https://artificialanalysis.ai/" target=blank >
-                    Análise Independente e comparativa entre modelos de Inteligência Artificial.
-                </a>
-            </li>
-            <li>
-                <a href="https://www.menti.com/albxwdxgm7gt?source=qr-page" target=blank >
-                    Mentimeter - Ideias para Projetos Internos (Brainstorming)
-                </a>
-            </li>
-            <li>
-                <a href="https://forms.office.com/r/a2rLyBn7RAe" target=blank >
-                    Pesquisa de satisfação / Novas ideias
-                </a>
-            </li>
-        
+            <li><a href="https://myapps.microsoft.com/" target="_blank">Painel de aplicativos Microsoft (Word/Excel/PowerPoint...)</a></li>
+            <li><a href="https://www.gov.br/governodigital/pt-br/infraestrutura-nacional-de-dados/inteligencia-artificial-1/publicacoes/guia-pratico-de-prompt-e-pesquisa-com-ia-para-servidores-publicos/" target="_blank">Guia prático de prompt e pesquisa com IA para servidores públicos</a></li>
+            <li><a href="https://ipeagpt.ipea.gov.br/" target="_blank">IPEAGpt - Ferramenta de IA segura do IPEA</a></li>
+            <li><a href="https://artificialanalysis.ai/" target="_blank">Análise Independente e comparativa entre modelos de IA</a></li>
+            <li><a href="https://www.menti.com/albxwdxgm7gt?source=qr-page" target="_blank">Mentimeter - Ideias para Projetos Internos (Brainstorming)</a></li>
+            <li><a href="https://forms.office.com/r/a2rLyBn7RAe" target="_blank">Pesquisa de satisfação / Novas ideias</a></li>
         </ul>
 
-          <h2>Slides Aulas (1, 2 e 3)</h2>
-     
+        <h2>Slides Aulas</h2>
         <ul>
-            <li>
-                <a href="Roteiro Aula 1 IA no IPEA 18.11.25 v3.pdf" target=blank >
-                    Aula 1 - 18 de novembro de 2025- IA para Produtividade no Trabalho
-                </a>
-            </li>
-            <li>
-                <a href="Roteiro Aula 2 IA no IPEA 25.11.25 v2.pdf" target=blank >
-                    Aula 2 - 25 de novembro de 2025 - IA para Comunicação, Gestão e Agente de IA (Copilot)
-                </a>
-            </li>
-            <li>
-                <a href="" target=blank >
-                    (Em breve) Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro 
-                </a>
-            </li>
-        
+            <li><a href="Roteiro Aula 1 IA no IPEA 18.11.25 v3.pdf" target="_blank">Aula 1 - 18 de novembro de 2025 - IA para Produtividade</a></li>
+            <li><a href="Roteiro Aula 2 IA no IPEA 25.11.25 v2.pdf" target="_blank">Aula 2 - 25 de novembro de 2025 - IA para Comunicação e Copilot</a></li>
+            <li><a href="Roteiro Aula 3 IA no IPEA 02.12.25 v1.pdf" target="_blank">Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro</a></li>
         </ul>
         
-          <h2>Gravações</h2>
-     
+        <h2>Gravações</h2>
         <ul>
             <li>
-                <!-- <a href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21eRm1aAL1_U2XkVZiWmiKH7O5xQKB0OtDkca0VFN0I1dHK0N-aTnfQLiGjUaafloc&driveItemId=01OPE6CROB37MAARVDO5GINRAY2A4QU3EA&sitePath=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEcHf2ABGo3dMhsQY0DkKbIAB94OgVojhY0qzeq53adb_EA&fileUrl=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEcHf2ABGo3dMhsQY0DkKbIAB94OgVojhY0qzeq53adb_EA&iCalUid=040000008200E00074C5B7101A82E00807E90B12A3E477CA9855DC01000000000000000010000000F134373FBB78354C904D0D43F600B6D3&masterICalUid=040000008200e00074c5b7101a82e00800000000a3e477ca9855dc01000000000000000010000000f134373fbb78354c904d0d43f600b6d3&threadId=19%3Ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2&organizerId=9a477e91-4a8c-4dff-874d-bfc14ec38f77&tenantId=daf3ba66-bd45-449d-8e55-bb5a6fd2a90d&callId=81e22481-be1f-48d7-81d7-93a22fb3a90a&threadType=Meeting&meetingType=Recurring&subType=RecapSharingLink_RecapChiclet" target=blank > -->
-                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EcHf2ABGo3dMhsQY0DkKbIABDJMcBACE6DU9uraGci019A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uv2F5b" target=blank >
-                    Aula 1 - 18 de novembro de 2025- IA para Produtividade no Trabalho
+                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EcHf2ABGo3dMhsQY0DkKbIABDJMcBACE6DU9uraGci019A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uv2F5b" target="_blank">
+                    Aula 1 - 18 de novembro de 2025 - IA para Produtividade
                 </a>
             </li>
             <li>
-                <!-- <a href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21eRm1aAL1_U2XkVZiWmiKH7O5xQKB0OtDkca0VFN0I1dHK0N-aTnfQLiGjUaafloc&driveItemId=01OPE6CRKMRIBDW34BP5BJJC6FJXMB52TR&sitePath=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fwebinar_ipea_gov_br%2FEUyKAjtvgX9ClIvFTdge6nEBOsTQvjCsTEO7XC9biJkUdg&fileUrl=https%3A%2F%2Fipeagovbr-my.sharepoint.com%2Fpersonal%2Fwebinar_ipea_gov_br%2FDocuments%2FGrava%25C3%25A7%25C3%25B5es%2FCurso%2520Introdu%25C3%25A7%25C3%25A3o%2520ao%2520uso%2520de%2520Intelig%25C3%25AAncia%2520Artificial%2520no%2520IPEA-20251125_195459UTC-Meeting%2520Recording.mp4%3Fweb%3D1&iCalUid=040000008200E00074C5B7101A82E00807E90B19A3E477CA9855DC01000000000000000010000000F134373FBB78354C904D0D43F600B6D3&masterICalUid=040000008200e00074c5b7101a82e00800000000a3e477ca9855dc01000000000000000010000000f134373fbb78354c904d0d43f600b6d3&threadId=19%3Ameeting_MTk1NDI1OWItMTRjMy00ODk1LWEzYjEtYzc1OTAxODJkOTA5%40thread.v2&organizerId=9a477e91-4a8c-4dff-874d-bfc14ec38f77&tenantId=daf3ba66-bd45-449d-8e55-bb5a6fd2a90d&callId=23613b6c-96ed-4c9c-a352-4d2a3815a156&threadType=Meeting&meetingType=Recurring&subType=RecapSharingLink_RecapCore" target=blank > -->
-                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EUyKAjtvgX9ClIvFTdge6nEBURD6uSgS038xC8TFXXmNQg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MJE5am" target=blank >
-                    Aula 2 - 25 de novembro de 2025 - IA para Comunicação, Gestão e Agente de IA (Copilot)
+                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EUyKAjtvgX9ClIvFTdge6nEBURD6uSgS038xC8TFXXmNQg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MJE5am" target="_blank">
+                    Aula 2 - 25 de novembro de 2025 - IA para Comunicação e Copilot
                 </a>
             </li>
             <li>
-                <a href="" target=blank >
-                    (Em breve) Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro 
+                <a href="https://ipeagovbr-my.sharepoint.com/:v:/g/personal/webinar_ipea_gov_br/EQJ02rCgh5VKgvJmWPXUe4UB631_H5F6ZicVX7FTt8NeCg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=9LdozJ" target="_blank">
+                    Aula 3 - 02 de dezembro de 2025 - IA no IPEA: Aplicações e Futuro
                 </a>
             </li>
-        
         </ul>
+
+        <h2>Instrutores</h2>
+        <div class="instructors-box">
+            <div class="instructor">
+                <img src="Foto Leandro IPEA 1x1.jpeg" alt="Leandro Marques">
+                <h3>Leandro Marques</h3>
+                <p>Técnico de Planejamento e Pesquisa</p>
+                <a href="mailto:leandro.silva@ipea.gov.br">leandro.silva@ipea.gov.br</a>
+            </div>
+            <div class="instructor">
+                <img src="frederico_social_claro.png" alt="Frederico Tomaz">
+                <h3>Frederico Tomaz</h3>
+                <p>Analista de Sistemas</p>
+                <a href="mailto:frederico.franzosi@ipea.gov.br">frederico.franzosi@ipea.gov.br</a>
+            </div>
+        </div>
+
     </div>
+
+    <footer>
+        <span class="footer-logo">ipea</span>
+        <p>Instituto de Pesquisa Econômica Aplicada</p>
+        <p>Coordenação-Geral de Tecnologia da Informação (CGDTI)</p>
+        <br>
+        <p>&copy; 2025 - Curso de Introdução à IA</p>
+        <p style="font-size: 0.8em; margin-top: 5px;">Desenvolvido por Leandro Marques</p>
+    </footer>
 
 </body>
 </html>
